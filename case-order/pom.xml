@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.nyayas</groupId>
+		<artifactId>nyayas</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>case-order</artifactId>
+	<packaging>pom</packaging>
+	
+	<name>case-order</name>
+
+	<properties>
+		<case.order.common>0.0.1-SNAPSHOT</case.order.common>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.nyayas</groupId>
+			<artifactId>common</artifactId>
+			<version>${common.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nyayas</groupId>
+			<artifactId>captcha</artifactId>
+			<version>${captcha.version}</version>
+		</dependency>
+	</dependencies>
+
+
+	<modules>
+		<module>case-order-case-number</module>
+		<module>case-order-common</module>
+		<module>case-order-filing-number</module>
+		<module>case-order-judge-wise</module>
+		<module>case-order-order-date</module>
+		<module>case-order-party-name</module>
+	</modules>
+
+</project>

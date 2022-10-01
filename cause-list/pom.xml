@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.nyayas</groupId>
+		<artifactId>nyayas</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<packaging>pom</packaging>
+	<artifactId>cause-list</artifactId>
+	<name>cause-list</name>
+
+	<properties>
+		<common.version>0.0.1-SNAPSHOT</common.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.nyayas</groupId>
+			<artifactId>common</artifactId>
+			<version>${common.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nyayas</groupId>
+			<artifactId>captcha</artifactId>
+			<version>${captcha.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+
+	<modules>
+		<module>cause-list-advocate</module>
+		<module>cause-list-common</module>
+		<module>cause-list-court-number</module>
+		<module>cause-list-entire</module>
+		<module>cause-list-judge</module>
+		<module>cause-list-misc</module>
+	</modules>
+
+</project>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.nyayas</groupId>
+		<artifactId>nyayas</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>case-status</artifactId>
+	<packaging>pom</packaging>
+	<name>case-status</name>
+
+	<properties>
+		<case.status.common>0.0.1-SNAPSHOT</case.status.common>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.nyayas</groupId>
+			<artifactId>common</artifactId>
+			<version>${common.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nyayas</groupId>
+			<artifactId>captcha</artifactId>
+			<version>${captcha.version}</version>
+		</dependency>
+	</dependencies>
+
+	<modules>
+		<module>case-status-act</module>
+		<module>case-status-advocate</module>
+		<module>case-status-case-number</module>
+		<module>case-status-case-type</module>
+		<module>case-status-cin-cnr</module>
+		<module>case-status-filing-number</module>
+		<module>case-status-fir-number</module>
+		<module>case-status-party-name</module>
+		<module>case-status-common</module>
+	</modules>
+
+</project>
