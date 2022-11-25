@@ -2,8 +2,6 @@ package com.nyayas.captcha.controller;
 
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nyayas.captcha.service.CaptchaService;
 import com.nyayas.captcha.service.CaptchaServiceFactory;
 import com.nyayas.captcha.util.Constant;
+
+import jakarta.annotation.Resource;
 
 @RestController
 @RequestMapping("v1")

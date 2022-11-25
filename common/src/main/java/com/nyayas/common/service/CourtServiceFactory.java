@@ -3,9 +3,9 @@ package com.nyayas.common.service;
 import java.util.List;
 import java.util.Optional;
 
-import javax.annotation.Resource;
-
 import org.springframework.stereotype.Component;
+
+import jakarta.annotation.Resource;
 
 @Component
 public class CourtServiceFactory<T extends Service<T>> {

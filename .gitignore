@@ -36,4 +36,6 @@ eureka/target/**
 ui/src/node/**
 ui/target/**
 ui/src/dist/**
+eureka/.factorypath
+ui/.factorypath
 

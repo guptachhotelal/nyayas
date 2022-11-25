@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.service.CourtServiceFactory;
 import com.nyayas.status.service.ActService;
+
+import jakarta.annotation.Resource;
 
 public class CaseStatusByActController extends AbstractCaseStatusController {
 
