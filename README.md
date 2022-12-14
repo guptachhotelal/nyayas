@@ -1,1 +1,1 @@
-# nyayas
+# nyayas (न्यायस)

@@ -29,7 +29,7 @@ public class SupremeCourt extends CaseStatusByFIRNumberService {
 
 	@Override
 	public boolean supports(Class<FIRNumberService> clazz, Object id) {
-		return FIRNumberService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.courtId());
+		return FIRNumberService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.courtCode());
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public class SupremeCourt extends AbstractCauselistService {
 
 	@Override
 	public boolean supports(Class<CauseListService> clazz, Object id) {
-		return CauseListService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.courtId());
+		return CauseListService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.courtCode());
 	}
 
 }

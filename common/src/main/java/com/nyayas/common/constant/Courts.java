@@ -1,23 +1,23 @@
 package com.nyayas.common.constant;
 
 public enum Courts {
-	SUPREME_COURT(1, "Supreme Court Of India"), ECOURT_DISTRICT_COURT(2, "eCourt District Court"),
-	ECOURT_HIGH_COURT(3, "eCourt High Court"), DELHI_HIGH_COURT(10, "Delhi High Court"),
-	BOMBAY_HIGH_COURT_AURANGABAD(21, "Bombay High Court, Aurangabad Bench"),
-	BOMBAY_HIGH_COURT_BOMBAY(22, "Bombay High Court, Bombay Bench"),
-	BOMBAY_HIGH_COURT_NAGPUR(23, "Bombay High Court, Nagpur Bench"),
-	BOMBAY_HIGH_COURT_GOA(24, "Bombay High Court, Goa Bench");
+	SUPREME_COURT("SCI", "Supreme Court Of India"), ECOURT_DISTRICT_COURT("ECDC", "eCourt District Court"),
+	ECOURT_HIGH_COURT("ECHC", "eCourt High Court"), DELHI_HIGH_COURT("DHC", "Delhi High Court"),
+	BOMBAY_HIGH_COURT_AURANGABAD("BHCA", "Bombay High Court, Aurangabad Bench"),
+	BOMBAY_HIGH_COURT_BOMBAY("BHCB", "Bombay High Court, Bombay Bench"),
+	BOMBAY_HIGH_COURT_NAGPUR("BHCN", "Bombay High Court, Nagpur Bench"),
+	BOMBAY_HIGH_COURT_GOA("BHCG", "Bombay High Court, Goa Bench");
 
-	private int courtId;
+	private String courtCode;
 	private String text;
 
-	private Courts(int courtId, String text) {
-		this.courtId = courtId;
+	private Courts(String courtCode, String text) {
+		this.courtCode = courtCode;
 		this.text = text;
 	}
 
-	public final int courtId() {
-		return courtId;
+	public final String courtCode() {
+		return courtCode;
 	}
 
 	public final String text() {

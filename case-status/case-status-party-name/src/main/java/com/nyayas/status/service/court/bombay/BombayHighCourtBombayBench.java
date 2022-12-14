@@ -14,7 +14,7 @@ public class BombayHighCourtBombayBench extends BombayHighCourt {
 
 	@Override
 	public boolean supports(Class<PartyNameService> clazz, Object id) {
-		return PartyNameService.class.equals(clazz) && id.equals(Courts.BOMBAY_HIGH_COURT_BOMBAY.courtId());
+		return PartyNameService.class.equals(clazz) && id.equals(Courts.BOMBAY_HIGH_COURT_BOMBAY.courtCode());
 	}
 
 	@Override
