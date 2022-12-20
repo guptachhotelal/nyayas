@@ -29,7 +29,7 @@ public class SupremeCourt extends CaseStatusByPartyNameService {
 
 	@Override
 	public boolean supports(Class<PartyNameService> clazz, Object id) {
-		return PartyNameService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.courtCode());
+		return PartyNameService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.code());
 	}
 
 	@Override

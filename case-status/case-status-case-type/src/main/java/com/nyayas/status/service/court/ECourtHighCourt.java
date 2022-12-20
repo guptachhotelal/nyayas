@@ -24,7 +24,7 @@ public class ECourtHighCourt extends CaseStatusByCaseTypeService {
 
 	@Override
 	public boolean supports(Class<CaseTypeService> clazz, Object id) {
-		return CaseTypeService.class.equals(clazz) && id.equals(Courts.ECOURT_HIGH_COURT.courtCode());
+		return CaseTypeService.class.equals(clazz) && id.equals(Courts.ECOURT_HIGH_COURT.code());
 	}
 
 	@Override

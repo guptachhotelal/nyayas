@@ -20,6 +20,10 @@ public final class ECourtHighCourtCaseStatusUtil {
 	public static final String CAPTCHA_URL = "https://hcservices.ecourts.gov.in/ecourtindiaHC/securimage/securimage_show.php";
 
 	public static final String STATUS_DETAIL_URL = "https://hcservices.ecourts.gov.in/ecourtindiaHC/cases/o_civil_case_history.php";
+	
+	private ECourtHighCourtCaseStatusUtil() {
+		throw new UnsupportedOperationException("Cannot initilize " + getClass().getName());
+	}
 
 	public static final Map<String, String> param(Map<String, String> param) {
 		param.put("state_code", param.get(CaseFields.STATE_CODE));

@@ -26,7 +26,7 @@ public class DelhiHighCourt extends CaseStatusByCINCNRService {
 
 	@Override
 	public boolean supports(Class<CINCNRService> clazz, Object id) {
-		return CINCNRService.class.equals(clazz) && id.equals(Courts.DELHI_HIGH_COURT.courtCode());
+		return CINCNRService.class.equals(clazz) && id.equals(Courts.DELHI_HIGH_COURT.code());
 	}
 
 	@Override

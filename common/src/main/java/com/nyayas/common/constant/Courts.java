@@ -8,16 +8,16 @@ public enum Courts {
 	BOMBAY_HIGH_COURT_NAGPUR("BHCN", "Bombay High Court, Nagpur Bench"),
 	BOMBAY_HIGH_COURT_GOA("BHCG", "Bombay High Court, Goa Bench");
 
-	private String courtCode;
+	private String code;
 	private String text;
 
-	private Courts(String courtCode, String text) {
-		this.courtCode = courtCode;
+	private Courts(String code, String text) {
+		this.code = code;
 		this.text = text;
 	}
 
-	public final String courtCode() {
-		return courtCode;
+	public final String code() {
+		return code;
 	}
 
 	public final String text() {

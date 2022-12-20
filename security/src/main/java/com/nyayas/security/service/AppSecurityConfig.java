@@ -17,7 +17,7 @@ public class AppSecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(authorizeRequests -> authorizeRequests.requestMatchers("/resources/**").permitAll()
+		http.authorizeHttpRequests(requests -> requests.requestMatchers("/resources/**").permitAll()
 				.requestMatchers("*/**").hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
 				.formLogin(formLogin -> formLogin.loginPage("/login").permitAll()).logout().permitAll();
 		http.csrf().disable();

@@ -14,7 +14,7 @@ public class BombayHighCourtNagpurBench extends BombayHighCourt {
 	
 	@Override
 	public boolean supports(Class<FIRNumberService> clazz, Object id) {
-		return FIRNumberService.class.equals(clazz) && id.equals(Courts.BOMBAY_HIGH_COURT_NAGPUR.courtCode());
+		return FIRNumberService.class.equals(clazz) && id.equals(Courts.BOMBAY_HIGH_COURT_NAGPUR.code());
 	}
 
 	@Override

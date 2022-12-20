@@ -33,7 +33,7 @@ public class ECourtDistrictCourt extends CaseStatusByCaseNumberService {
 
 	@Override
 	public boolean supports(Class<CaseNumberService> clazz, Object id) {
-		return CaseNumberService.class.equals(clazz) && id.equals(Courts.ECOURT_DISTRICT_COURT.courtCode());
+		return CaseNumberService.class.equals(clazz) && id.equals(Courts.ECOURT_DISTRICT_COURT.code());
 	}
 
 	@Override

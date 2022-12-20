@@ -29,7 +29,7 @@ public class SupremeCourt extends CaseStatusByCINCNRService {
 
 	@Override
 	public boolean supports(Class<CINCNRService> clazz, Object id) {
-		return CINCNRService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.courtCode());
+		return CINCNRService.class.equals(clazz) && id.equals(Courts.SUPREME_COURT.code());
 	}
 
 	@Override

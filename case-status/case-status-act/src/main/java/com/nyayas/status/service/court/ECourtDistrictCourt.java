@@ -25,7 +25,7 @@ public class ECourtDistrictCourt extends CaseStatusByActService {
 
 	@Override
 	public boolean supports(Class<ActService> clazz, Object id) {
-		return ActService.class.equals(clazz) && id.equals(Courts.ECOURT_DISTRICT_COURT.courtCode());
+		return ActService.class.equals(clazz) && id.equals(Courts.ECOURT_DISTRICT_COURT.code());
 	}
 
 	@Override

@@ -26,7 +26,7 @@ public class DelhiHighCourt extends CaseStatusByActService {
 
 	@Override
 	public boolean supports(Class<ActService> clazz, Object id) {
-		return ActService.class.equals(clazz) && id.equals(Courts.DELHI_HIGH_COURT.courtCode());
+		return ActService.class.equals(clazz) && id.equals(Courts.DELHI_HIGH_COURT.code());
 	}
 
 	@Override
