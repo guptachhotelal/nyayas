@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class AppSecurityConfig {
 
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(requests -> requests.requestMatchers("/resources/**").permitAll()
 				.requestMatchers("*/**").hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
 				.formLogin(formLogin -> formLogin.loginPage("/login").permitAll()).logout().permitAll();
@@ -25,7 +25,7 @@ public class AppSecurityConfig {
 	}
 
 	@Bean
-	public InMemoryUserDetailsManager userDetailsService() {
+	InMemoryUserDetailsManager userDetailsService() {
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		UserDetails admin = User.withUsername("admin").password(encoder.encode("admin")).roles("ADMIN").build();
 		UserDetails user = User.withUsername("user").password(encoder.encode("user")).roles("USER").build();
