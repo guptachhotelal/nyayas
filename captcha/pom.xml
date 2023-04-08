@@ -13,7 +13,7 @@
 	<name>captcha</name>
 
 	<properties>
-		<tesseract.version>5.4.0</tesseract.version>
+		<tesseract.version>5.7.0</tesseract.version>
 	</properties>
 
 	<dependencies>
@@ -36,6 +36,22 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${pmd.version}</version>
+                <configuration>
+					<failOnViolation>false</failOnViolation>
+					<printFailingErrors>true</printFailingErrors>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+            </plugin>
 		</plugins>
 	</build>
 

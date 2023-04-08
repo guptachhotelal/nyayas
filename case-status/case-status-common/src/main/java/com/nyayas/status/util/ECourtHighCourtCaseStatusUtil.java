@@ -13,14 +13,14 @@ import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.util.ECourtHelper;
 import com.nyayas.common.util.JSoupHelper;
 
-public final class ECourtHighCourtCaseStatusUtil {
+public class ECourtHighCourtCaseStatusUtil {
 
 	public static final String STATUS_HOME = "https://hcservices.ecourts.gov.in/ecourtindiaHC/cases/case_no.php?state_cd=##sc##&dist_cd=##dc##&court_code=##cc##";
 
 	public static final String CAPTCHA_URL = "https://hcservices.ecourts.gov.in/ecourtindiaHC/securimage/securimage_show.php";
 
 	public static final String STATUS_DETAIL_URL = "https://hcservices.ecourts.gov.in/ecourtindiaHC/cases/o_civil_case_history.php";
-	
+
 	private ECourtHighCourtCaseStatusUtil() {
 		throw new UnsupportedOperationException("Cannot initilize " + getClass().getName());
 	}
@@ -65,20 +65,21 @@ public final class ECourtHighCourtCaseStatusUtil {
 			throws IOException {
 		String[] cases = resp.body().replaceAll("[^\\x00-\\x7F]", "").trim().split("##");
 		List<Map<String, Object>> caseList = new ArrayList<>();
-		for (String part : cases) {
-			String[] parts = part.split("~");
-			param.put("case_no", parts[0].trim());
-			param.put("cino", parts[3].trim());
-			Document sdDoc = JSoupHelper.postConnection(url, 0).data(param).execute().parse();
-			Map<String, Object> map = new LinkedHashMap<>();
-			map.put(CaseFields.CASE_NUMBER, parts[0].trim());
-			String caseTile = parts[2].replaceAll("<br />", " ").replace('\n', ' ').replaceAll("\\s+", " ").trim();
-			map.put(CaseFields.CASE_TITLE, caseTile);
-			map.put(CaseFields.CASE_DETAIL, ECourtHelper.caseDetail(sdDoc));
-			map.put(CaseFields.CASE_STATUS, ECourtHelper.caseStatus(sdDoc));
-			caseList.add(map);
-			break;
-		}
+//		for (String part : cases) {
+//			String[] parts = part.split("~");
+		String[] parts = cases[0].split("~");
+		param.put("case_no", parts[0].trim());
+		param.put("cino", parts[3].trim());
+		Document sdDoc = JSoupHelper.postConnection(url, 0).data(param).execute().parse();
+		Map<String, Object> map = new LinkedHashMap<>();
+		map.put(CaseFields.CASE_NUMBER, parts[0].trim());
+		String caseTile = parts[2].replaceAll("<br />", " ").replace('\n', ' ').replaceAll("\\s+", " ").trim();
+		map.put(CaseFields.CASE_TITLE, caseTile);
+		map.put(CaseFields.CASE_DETAIL, ECourtHelper.caseDetail(sdDoc));
+		map.put(CaseFields.CASE_STATUS, ECourtHelper.caseStatus(sdDoc));
+		caseList.add(map);
+//			break;
+//		}
 		return caseList;
 	}
 }

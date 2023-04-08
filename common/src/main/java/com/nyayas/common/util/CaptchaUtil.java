@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 import org.jsoup.Connection.Response;
 
-public final class CaptchaUtil {
+public class CaptchaUtil {
 
 	public static final String TEMP_DIR = System.getProperty("java.io.tmpdir");
 

@@ -12,7 +12,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-public final class SSLByPass {
+public class SSLByPass {
 
 	public static final SSLSocketFactory bypassSSL() {
 		TrustManager[] trustAll = new TrustManager[] { new X509TrustManager() {
@@ -34,6 +34,7 @@ public final class SSLByPass {
 			sslcontext = SSLContext.getInstance("SSL");
 			sslcontext.init(null, trustAll, new SecureRandom());
 		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 
 		SSLSocketFactory scoFactory = sslcontext.getSocketFactory();

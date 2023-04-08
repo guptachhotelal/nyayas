@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import com.nyayas.common.constant.CaseFields;
 
-public final class ResponseUtil {
+public class ResponseUtil {
 
 	public static final List<String> REQUEST_KEYS = Arrays.asList(CaseFields.CASE_NUMBER, CaseFields.CASE_YEAR,
 			CaseFields.CASE_TYPE, CaseFields.STATE_CODE, CaseFields.DISTRICT_CODE, CaseFields.CITY_CODE,

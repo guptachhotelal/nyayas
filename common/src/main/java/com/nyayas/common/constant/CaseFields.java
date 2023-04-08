@@ -39,8 +39,8 @@ public interface CaseFields {
 	String RESPONDENTS = "respondents";
 	String PETITIONER_ADVOCATES = "petitionerAdvocates";
 	String RESPONDENT_ADVOCATES = "respondentAdvocates";
-	
-	String CASE_DETAIL="caseDetail";
-	String CASE_STATUS="caseStatus";
+
+	String CASE_DETAIL = "caseDetail";
+	String CASE_STATUS = "caseStatus";
 
 }

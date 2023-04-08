@@ -11,7 +11,7 @@ public enum Courts {
 	private String code;
 	private String text;
 
-	private Courts(String code, String text) {
+	Courts(String code, String text) {
 		this.code = code;
 		this.text = text;
 	}

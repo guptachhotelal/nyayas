@@ -7,7 +7,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
 
-public final class DateUtil {
+public class DateUtil {
 
 	public static final String YYYY_MM_DD_DASH = "yyyy-MM-dd";
 	public static final String YYYY_MM_DD_SLASH = "yyyy/MM/dd";

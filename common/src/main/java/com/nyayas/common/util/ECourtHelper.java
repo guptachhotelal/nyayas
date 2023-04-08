@@ -10,7 +10,7 @@ import org.jsoup.select.Elements;
 
 import com.nyayas.common.constant.CaseFields;
 
-public final class ECourtHelper {
+public class ECourtHelper {
 
 	public static final Map<String, Object> caseDetail(Document sdDoc) {
 		Map<String, Object> map = new HashMap<>();

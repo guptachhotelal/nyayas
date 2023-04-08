@@ -65,7 +65,7 @@ public class HighCourtService {
 		return HIGH_COURTS;
 	}
 
-	private static final String states(int stateCode) {
+	private static String states(int stateCode) {
 		Map<Integer, String> map = new HashMap<>();
 		map.put(1, "Maharashtra");
 		map.put(2, "Andhra Pradesh");

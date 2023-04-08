@@ -38,7 +38,7 @@ public class CourtRestController {
 	public ResponseEntity<Map<String, Object>> highCourtList(HttpServletRequest request) {
 		log.info("Listing high courts");
 		String sortColumn = request.getParameter("order[0][column]");
-		boolean asc = "asc".equals(request.getParameter("order[0][dir]")) ? true : false;
+		boolean asc = "asc".equals(request.getParameter("order[0][dir]")) || false;
 		String sText = request.getParameter("search[value]");
 		sText = Objects.isNull(sText) ? "" : sText.toLowerCase();
 		String sStart = request.getParameter("start");
@@ -69,7 +69,7 @@ public class CourtRestController {
 	public ResponseEntity<Map<String, Object>> districtCourtList(HttpServletRequest request) {
 		log.info("Listing district courts");
 		String sortColumn = request.getParameter("order[0][column]");
-		boolean asc = "asc".equals(request.getParameter("order[0][dir]")) ? true : false;
+		boolean asc = "asc".equals(request.getParameter("order[0][dir]")) || false;
 		String sText = request.getParameter("search[value]");
 		sText = Objects.isNull(sText) ? "" : sText.toLowerCase();
 		String sStart = request.getParameter("start");
