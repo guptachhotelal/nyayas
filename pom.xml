@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.5</version>
+		<version>3.1.0</version>
 		<relativePath />
 	</parent>
 
@@ -23,7 +23,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.2</spring-cloud.version>
-		<pmd.version>3.20.0</pmd.version>
+		<pmd.version>3.21.0</pmd.version>
 		
 		<common.version>0.0.1-SNAPSHOT</common.version>
 		<captcha.version>0.0.1-SNAPSHOT</captcha.version>

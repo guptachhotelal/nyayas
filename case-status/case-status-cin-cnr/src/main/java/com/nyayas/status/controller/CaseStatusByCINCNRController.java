@@ -15,7 +15,7 @@ import com.nyayas.status.service.CINCNRService;
 
 import jakarta.annotation.Resource;
 
-public class CaseStatusByCINCNRController extends AbstractCaseStatusController {
+public class CaseStatusByCINCNRController {
 
 	@Resource
 	private CourtServiceFactory<CINCNRService> cincnrFactory;

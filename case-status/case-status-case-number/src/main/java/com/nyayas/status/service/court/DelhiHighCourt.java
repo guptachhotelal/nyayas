@@ -1,7 +1,7 @@
 package com.nyayas.status.service.court;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -9,7 +9,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
@@ -22,7 +21,9 @@ public class DelhiHighCourt extends CaseStatusByCaseNumberService {
 
 	public static final String STATUS_HOME = "https://delhihighcourt.nic.in/case.asp";
 
-	public static final String STATUS_URL = "https://delhihighcourt.nic.in/dhc_case_status_list_new.asp";
+	public static final String STATUS_URL = "https://delhihighcourt.nic.in/court/dhc_case_status_list_new?";
+
+	private static final String[] FIELDS = { "ctype", "cno", "cyear", "sno" };
 
 	@Override
 	public boolean supports(Class<CaseNumberService> clazz, Object id) {
@@ -32,9 +33,10 @@ public class DelhiHighCourt extends CaseStatusByCaseNumberService {
 	@Override
 	public Map<String, String> caseNumberParam(Map<String, String> param) {
 		Map<String, String> map = super.caseNumberParam(param);
-		map.put("ctype_29", param.get(CaseFields.CASE_TYPE));
+		map.put("ctype", param.get(CaseFields.CASE_TYPE));
 		map.put("cno", param.get(CaseFields.CASE_NUMBER));
 		map.put("cyear", param.get(CaseFields.CASE_YEAR));
+		map.put("sno", "1");
 		return map;
 	}
 
@@ -50,12 +52,20 @@ public class DelhiHighCourt extends CaseStatusByCaseNumberService {
 		param.put("inputdigit", sCaptcha);
 		param.put("hiddeninputdigit", sCaptcha);
 
-		Document sDoc = JSoupHelper.postConnection(STATUS_URL, 0).data(param).execute().parse();
-		Elements spans = sDoc.select("div#InnerPageContent ul li span");
+		StringBuilder sbURL = new StringBuilder(STATUS_URL);
+		Arrays.asList(FIELDS).stream().forEach(field -> {
+			sbURL.append(field).append("=").append(param.get(field)).append("&");
+		});
+		String statusURL = String.valueOf(sbURL);
+		sbURL.setLength(0);
+
+		Document sDoc = JSoupHelper.getResponse(statusURL, 0).parse();
+		Elements trs = sDoc.getElementById("InnerPageContent").getElementsByTag("td");
+
 		Map<String, Object> map = new LinkedHashMap<>();
 
-		for (int i = 1; i < spans.size(); i++) {
-			String text = spans.get(i).text();
+		for (int i = 0; i < trs.size(); i++) {
+			String text = trs.get(i).text();
 			switch (i) {
 			case 0:
 				break;
@@ -75,18 +85,5 @@ public class DelhiHighCourt extends CaseStatusByCaseNumberService {
 			}
 		}
 		return ResponseUtil.data(param, map);
-	}
-
-	public static void main(String[] args) throws IOException {
-		Map<String, String> map = new HashMap<>();
-		map.put(CaseFields.CASE_NUMBER, "1");
-		map.put(CaseFields.CASE_TYPE, "ARB. A. (COMM.)");
-		map.put(CaseFields.CASE_YEAR, "2022");
-
-		CaseNumberService css = new DelhiHighCourt();
-
-		Map<String, Object> resp = css.byCaseNumber(css.caseNumberParam(map));
-
-		System.out.println(new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(resp));
 	}
 }

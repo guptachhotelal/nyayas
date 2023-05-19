@@ -22,7 +22,7 @@ public class CaptchaController {
 	private CaptchaServiceFactory captchaFactory;
 
 	@PostMapping("captcha")
-	public ResponseEntity<Map<String, String>> image(@RequestBody Map<String, String> param) {
+	public ResponseEntity<Map<String, String>> solve(@RequestBody Map<String, String> param) {
 		CaptchaService cs = captchaFactory.getService(CaptchaService.class, param.get(Constant.TYPE));
 		return ResponseEntity.ok(cs.captcha(param));
 	}

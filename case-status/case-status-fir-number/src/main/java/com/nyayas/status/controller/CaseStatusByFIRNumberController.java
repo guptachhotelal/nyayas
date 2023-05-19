@@ -15,7 +15,7 @@ import com.nyayas.status.service.FIRNumberService;
 
 import jakarta.annotation.Resource;
 
-public class CaseStatusByFIRNumberController extends AbstractCaseStatusController {
+public class CaseStatusByFIRNumberController {
 
 	@Resource
 	private CourtServiceFactory<FIRNumberService> firNumberFactory;

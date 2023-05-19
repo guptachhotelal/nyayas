@@ -2,7 +2,6 @@
 package com.nyayas.status.service.court;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -12,7 +11,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
@@ -80,19 +78,4 @@ public class SupremeCourt extends CaseStatusByCaseNumberService {
 		});
 		return ResponseUtil.data(param, map);
 	}
-
-	public static void main(String[] args) throws Exception {
-		Map<String, String> map = new HashMap<>();
-		map.put(CaseFields.CASE_NUMBER, "1");
-		map.put(CaseFields.CASE_TYPE, "3");
-		map.put(CaseFields.CASE_YEAR, "2022");
-
-		SupremeCourt sc = new SupremeCourt();
-		Map<String, String> param = sc.caseNumberParam(map);
-		ObjectMapper mapper = new ObjectMapper();
-//		System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(param));
-
-		System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(sc.byCaseNumber(param)));
-	}
-
 }

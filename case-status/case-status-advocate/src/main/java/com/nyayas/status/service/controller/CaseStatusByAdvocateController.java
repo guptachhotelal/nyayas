@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.service.CourtServiceFactory;
-import com.nyayas.status.controller.AbstractCaseStatusController;
 import com.nyayas.status.service.AdvocateService;
 
 import jakarta.annotation.Resource;
 
 @RequestMapping("advocate")
-public class CaseStatusByAdvocateController extends AbstractCaseStatusController {
+public class CaseStatusByAdvocateController {
 
 	@Resource
 	private CourtServiceFactory<AdvocateService> advocateFactory;

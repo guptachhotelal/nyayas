@@ -15,7 +15,7 @@ import com.nyayas.status.service.PartyNameService;
 
 import jakarta.annotation.Resource;
 
-public class CaseStatusByPartyNameController extends AbstractCaseStatusController {
+public class CaseStatusByPartyNameController {
 
 	@Resource
 	private CourtServiceFactory<PartyNameService> partyNameFactory;

@@ -11,9 +11,10 @@
 	</parent>
 	<artifactId>common</artifactId>
 	<name>common</name>
+	<packaging>jar</packaging>
 
 	<properties>
-		<jsoup.version>1.15.4</jsoup.version>
+		<jsoup.version>1.16.1</jsoup.version>
 	</properties>
 
 	<dependencies>

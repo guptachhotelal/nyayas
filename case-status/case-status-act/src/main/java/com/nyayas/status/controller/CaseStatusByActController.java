@@ -15,7 +15,7 @@ import com.nyayas.status.service.ActService;
 
 import jakarta.annotation.Resource;
 
-public class CaseStatusByActController extends AbstractCaseStatusController {
+public class CaseStatusByActController {
 
 	@Resource
 	private CourtServiceFactory<ActService> actFactory;

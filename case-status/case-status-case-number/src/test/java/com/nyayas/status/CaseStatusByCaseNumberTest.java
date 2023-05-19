@@ -1,4 +1,4 @@
-package com.nyayas.captcha;
+package com.nyayas.status;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -10,25 +10,28 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nyayas.captcha.service.CaptchaServiceFactory;
+import com.nyayas.common.constant.APIConstants;
+import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.status.service.CaseNumberService;
 
 import jakarta.annotation.Resource;
 
-
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = CaptchaServiceApplication.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = CaseStatusByCaseNumberApplication.class)
 @AutoConfigureMockMvc
-public class CaptchaServiceApplicationTest {
+public class CaseStatusByCaseNumberTest {
 
 	@Resource
-	protected CaptchaServiceFactory serviceFactory;
-
-	protected ObjectMapper mapper = new ObjectMapper();
+	protected CourtServiceFactory<CaseNumberService> caseNumberFactory;
 
 	@LocalServerPort
 	private int port;
 
+	protected ObjectMapper mapper = new ObjectMapper();
+
 	@Resource
 	protected MockMvc mockMvc;
+	
+	protected CaseNumberService cns;
 
 	@Test
 	public void contextLoads() {
@@ -39,7 +42,7 @@ public class CaptchaServiceApplicationTest {
 		assertNotNull(mockMvc);
 	}
 
-	protected String host() {
-		return "http://localhost:" + port + "/";
+	protected String uri() {
+		return "http://localhost:" + port + "/" + APIConstants.CASE_STATUS_BASE + "/case-number";
 	}
 }

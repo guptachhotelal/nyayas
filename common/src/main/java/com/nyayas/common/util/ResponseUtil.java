@@ -20,14 +20,14 @@ public class ResponseUtil {
 		return data(request, Collections.emptyList());
 	}
 
-	public static final Map<String, Object> data(Map<String, String> request, Object resposne) {
+	public static final Map<String, Object> data(Map<String, String> request, Object response) {
 		Set<String> keys = request.keySet().stream().filter(key -> !REQUEST_KEYS.contains(key))
 				.collect(Collectors.toSet());
 		request.keySet().removeAll(keys);
 		request.put("timestamp", String.valueOf(System.currentTimeMillis()));
 		Map<String, Object> map = new HashMap<>();
 		map.put("request", request);
-		map.put("response", resposne);
+		map.put("response", response);
 		return map;
 	}
 }

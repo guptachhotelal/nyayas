@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.service.CourtServiceFactory;
-import com.nyayas.status.controller.AbstractCaseStatusController;
 import com.nyayas.status.service.CaseTypeService;
 
 import jakarta.annotation.Resource;
 
-public class CaseStatusByCaseTypeController extends AbstractCaseStatusController {
+public class CaseStatusByCaseTypeController {
 
 	@Resource
 	private CourtServiceFactory<CaseTypeService> caseTypeFactory;
