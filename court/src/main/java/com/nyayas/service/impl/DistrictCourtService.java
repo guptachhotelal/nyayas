@@ -1,4 +1,4 @@
-package com.nyayas.service;
+package com.nyayas.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +13,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
+import com.nyayas.service.AbstractCourtService;
+import com.nyayas.service.CourtService;
 
 //https://curl.trillworks.com
 @Service
