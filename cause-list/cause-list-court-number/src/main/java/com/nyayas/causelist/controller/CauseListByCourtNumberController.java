@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nyayas.causelist.service.CauseListService;
-import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.common.service.ServiceFactory;
 
 import jakarta.annotation.Resource;
 
@@ -16,7 +16,7 @@ import jakarta.annotation.Resource;
 public class CauseListByCourtNumberController {
 
 	@Resource
-	private CourtServiceFactory<CauseListService> causeListFactory;
+	private ServiceFactory<CauseListService> causeListFactory;
 
 	@PostMapping("causeList")
 	public ResponseEntity<Map<String, Object>> causeList(@RequestBody Map<String, String> param) {

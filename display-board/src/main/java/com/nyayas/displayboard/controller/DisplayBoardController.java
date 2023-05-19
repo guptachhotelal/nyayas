@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.common.service.ServiceFactory;
 import com.nyayas.displayboard.service.DisplayBoardService;
 
 import jakarta.annotation.Resource;
@@ -16,7 +16,7 @@ import jakarta.annotation.Resource;
 public class DisplayBoardController {
 
 	@Resource
-	private CourtServiceFactory<DisplayBoardService> displayBoardFactory;
+	private ServiceFactory<DisplayBoardService> displayBoardFactory;
 
 	@PostMapping("causeList")
 	public ResponseEntity<Map<String, Object>> displayBoard(@RequestBody Map<String, String> param) {

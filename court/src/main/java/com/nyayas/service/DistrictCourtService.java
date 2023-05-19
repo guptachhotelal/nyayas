@@ -1,9 +1,6 @@
 package com.nyayas.service;
 
-import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.jsoup.Connection.Response;
@@ -14,18 +11,19 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
-import com.nyayas.service.vo.DistrictCourt;
 
 //https://curl.trillworks.com
 @Service
-public class DistrictCourtService {
+public class DistrictCourtService extends AbstractCourtService {
 
 	private static final String HOME_URL = "https://services.ecourts.gov.in/ecourtindia_v6/main.php";
 	private static final String COURT_URL = "https://services.ecourts.gov.in/ecourtindia_v6/cases_qry/index_qry.php";
-	
-	public List<DistrictCourt> courts() throws IOException {
-		return Collections.emptyList();
+
+	@Override
+	public boolean supports(Class<CourtService> clazz, Object id) {
+		return CourtService.class.equals(clazz) && id.equals(Courts.ECOURT_DISTRICT_COURT.code());
 	}
 
 	public static void main(String[] args) throws Exception {

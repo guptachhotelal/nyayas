@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyayas.common.constant.APIConstants;
-import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.common.service.ServiceFactory;
 import com.nyayas.status.service.CaseNumberService;
 
 import jakarta.annotation.Resource;
@@ -21,7 +21,7 @@ import jakarta.annotation.Resource;
 public class CaseStatusByCaseNumberTest {
 
 	@Resource
-	protected CourtServiceFactory<CaseNumberService> caseNumberFactory;
+	protected ServiceFactory<CaseNumberService> caseNumberFactory;
 
 	@LocalServerPort
 	private int port;

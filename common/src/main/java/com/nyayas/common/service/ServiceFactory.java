@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import jakarta.annotation.Resource;
 
 @Component
-public class CourtServiceFactory<T extends Service<T>> {
+public class ServiceFactory<T extends Service<T>> {
 
 	@Resource
-	private List<T> courtServices;
+	private List<T> services;
 
 	public T getService(Class<T> clazz, Object id) {
-		return Optional.ofNullable(courtServices)
+		return Optional.ofNullable(services)
 				.orElseThrow(() -> new IllegalStateException("No Service initialized.")).stream()
 				.filter(service -> service.supports(clazz, id)).findFirst()
 				.orElseThrow(() -> new IllegalArgumentException("No service with id " + id + " exist."));

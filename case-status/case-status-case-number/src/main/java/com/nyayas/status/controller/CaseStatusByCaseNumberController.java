@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nyayas.common.constant.APIConstants;
 import com.nyayas.common.constant.CaseFields;
-import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.common.service.ServiceFactory;
 import com.nyayas.common.util.ResponseUtil;
 import com.nyayas.status.service.CaseNumberService;
 
@@ -23,7 +23,7 @@ import jakarta.annotation.Resource;
 public class CaseStatusByCaseNumberController {
 
 	@Resource
-	private CourtServiceFactory<CaseNumberService> caseNumberFactory;
+	private ServiceFactory<CaseNumberService> caseNumberFactory;
 
 	@PostMapping("case-number")
 	public ResponseEntity<Map<String, Object>> byCaseNumber(@RequestBody Map<String, String> param) {

@@ -6,6 +6,8 @@ import lombok.Getter;
 @Getter
 public class DistrictCourt extends HighCourt {
 
+	private static final long serialVersionUID = 1L;
+
 	private String districtCode;
 	private String districtName;
 

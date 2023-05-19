@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.nyayas.common.constant.CaseFields;
-import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.common.service.ServiceFactory;
 import com.nyayas.status.service.ActService;
 
 import jakarta.annotation.Resource;
@@ -18,7 +18,7 @@ import jakarta.annotation.Resource;
 public class CaseStatusByActController {
 
 	@Resource
-	private CourtServiceFactory<ActService> actFactory;
+	private ServiceFactory<ActService> actFactory;
 
 	@PostMapping("act")
 	public ResponseEntity<Map<String, Object>> byPartyName(@RequestBody Map<String, String> param) {

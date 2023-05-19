@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.nyayas.common.constant.CaseFields;
-import com.nyayas.common.service.CourtServiceFactory;
+import com.nyayas.common.service.ServiceFactory;
 import com.nyayas.status.service.CINCNRService;
 
 import jakarta.annotation.Resource;
@@ -18,7 +18,7 @@ import jakarta.annotation.Resource;
 public class CaseStatusByCINCNRController {
 
 	@Resource
-	private CourtServiceFactory<CINCNRService> cincnrFactory;
+	private ServiceFactory<CINCNRService> cincnrFactory;
 
 	@PostMapping("cnr")
 	public ResponseEntity<Map<String, Object>> byCINCNR(@RequestBody Map<String, String> param) {

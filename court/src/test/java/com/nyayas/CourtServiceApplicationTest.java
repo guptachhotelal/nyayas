@@ -1,4 +1,4 @@
-package com.nyayas.captcha;
+package com.nyayas;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -9,21 +9,19 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nyayas.captcha.service.CaptchaService;
 import com.nyayas.common.service.ServiceFactory;
+import com.nyayas.service.CourtService;
 
 import jakarta.annotation.Resource;
 
-
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = CaptchaServiceApplication.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = CourtServiceApplication.class)
 @AutoConfigureMockMvc
-public class CaptchaServiceApplicationTest {
+public class CourtServiceApplicationTest {
 
 	@Resource
-	protected ServiceFactory<CaptchaService> serviceFactory;
+	protected ServiceFactory<CourtService> serviceFactory;
 
-	protected ObjectMapper mapper = new ObjectMapper();
+	protected CourtService cs = null;
 
 	@LocalServerPort
 	private int port;
@@ -41,6 +39,6 @@ public class CaptchaServiceApplicationTest {
 	}
 
 	protected String uri() {
-		return "http://localhost:" + port + "/v1/captcha";
+		return "http://localhost:" + port + "/v1/courts";
 	}
 }

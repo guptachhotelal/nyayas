@@ -1,6 +1,7 @@
 package com.nyayas.service;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -14,20 +15,26 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
+import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
 import com.nyayas.service.vo.HighCourt;
 
 //https://curl.trillworks.com
 @Service
-public class HighCourtService {
+public class HighCourtService extends AbstractCourtService {
 
 	private static final String HOME_URL = "https://hcservices.ecourts.gov.in/hcservices/main.php";
 	private static final String COURT_URL = "https://hcservices.ecourts.gov.in/hcservices/cases_qry/index_qry.php";
 	// https://services.ecourts.gov.in/ecourtindiaHC/cases/case_no.php?state_cd=1&dist_cd=1&court_code=1&stateNm=Bombay
 
-	private static final List<HighCourt> HIGH_COURTS = new ArrayList<>();
+	@Override
+	public boolean supports(Class<CourtService> clazz, Object id) {
+		return CourtService.class.equals(clazz) && id.equals(Courts.ECOURT_HIGH_COURT.code());
+	}
 
-	public List<HighCourt> courts() throws IOException {
+	private static final List<Serializable> HIGH_COURTS = new ArrayList<>();
+
+	public List<Serializable> courts() throws IOException {
 		if (!HIGH_COURTS.isEmpty()) {
 			return HIGH_COURTS;
 		}
@@ -54,8 +61,6 @@ public class HighCourtService {
 				hcs.add(HighCourt.highCourtBuilder().stateCode(Integer.parseInt(state.val()))
 						.stateName(states(Integer.parseInt(state.val()))).courtName(state.text())
 						.benchCode(Integer.parseInt(bench[0])).benchName(bench[1]).build());
-//				hcs.add(new HighCourt(Integer.parseInt(state.val()), states(Integer.parseInt(state.val())),
-//						state.text(), Integer.parseInt(bench[0]), bench[1]));
 			}
 		}
 
@@ -93,11 +98,6 @@ public class HighCourtService {
 		map.put(23, "Madhya Pradesh");
 		map.put(24, "Sikkim");
 		map.put(25, "Manipur");
-		map.put(25, "Manipur");
-		map.put(25, "Manipur");
-		map.put(25, "Manipur");
-		map.put(25, "Manipur");
-
 		return map.get(stateCode);
 	}
 
@@ -128,6 +128,8 @@ public class HighCourtService {
 			}
 		}
 		hcs.stream().forEach(System.out::println);
+
+		System.out.println(new HighCourtService().courts());
 	}
 
 }

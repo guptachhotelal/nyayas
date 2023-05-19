@@ -69,7 +69,7 @@ public class TextCaptchaServiceTest extends CaptchaServiceApplicationTest {
 		param.put(Constant.TYPE, Constant.TEXT);
 		param.put(Constant.LENGTH, String.valueOf(6));
 		String requestBody = mapper.writeValueAsString(param);
-		RequestBuilder builder = post(host() + "v1/captcha").content(requestBody).accept(MediaType.APPLICATION_JSON)
+		RequestBuilder builder = post(uri()).content(requestBody).accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON);
 		mockMvc.perform(builder).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
 	}
