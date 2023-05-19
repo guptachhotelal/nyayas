@@ -13,14 +13,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import jakarta.servlet.DispatcherType;
+
 @Configuration
 @EnableWebSecurity
 public class AppSecurityConfig {
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(auth -> auth.shouldFilterAllDispatcherTypes(false).requestMatchers("/resources/**")
-				.permitAll().requestMatchers("*/**").hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
+		http.authorizeHttpRequests(auth -> auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+				.requestMatchers("/resources/**").permitAll()
+				.requestMatchers("*/**").hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
 				.formLogin(form -> form.loginPage("/login").permitAll()).logout(logout -> logout.permitAll())
 				.httpBasic(withDefaults());
 		http.csrf(csrf -> csrf.disable());
