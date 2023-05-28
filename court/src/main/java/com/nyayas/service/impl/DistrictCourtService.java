@@ -1,49 +1,82 @@
 package com.nyayas.service.impl;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
 
-import org.jsoup.Connection.Response;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nyayas.common.constant.Courts;
-import com.nyayas.common.util.JSoupHelper;
-import com.nyayas.service.AbstractCourtService;
+import com.nyayas.service.AbstractDistrictCourtService;
 import com.nyayas.service.CourtService;
+import com.nyayas.service.vo.DistrictCourtComplex;
+import com.nyayas.service.vo.DistrictCourtEstablishment;
 
 //https://curl.trillworks.com
+//https://curlconverter.com/
 @Service
-public class DistrictCourtService extends AbstractCourtService {
+public class DistrictCourtService extends AbstractDistrictCourtService {
 
-	private static final String HOME_URL = "https://services.ecourts.gov.in/ecourtindia_v6/main.php";
-	private static final String COURT_URL = "https://services.ecourts.gov.in/ecourtindia_v6/cases_qry/index_qry.php";
+	private static final List<Serializable> COURT_COMPLEX = new ArrayList<>();
+
+	private static final List<Serializable> COURT_ESTABLISHMENT = Collections.emptyList();
 
 	@Override
 	public boolean supports(Class<CourtService> clazz, Object id) {
 		return CourtService.class.equals(clazz) && id.equals(Courts.ECOURT_DISTRICT_COURT.code());
 	}
 
-	public static void main(String[] args) throws Exception {
-		Response response = JSoupHelper.getResponse(HOME_URL, 0);
-		Map<String, String> cookies = response.cookies();
-		response = JSoupHelper.getConnection(HOME_URL, 0).cookies(cookies).execute();
-		cookies.putAll(response.cookies());
-		String html = response.parse().html();
-		String csrfToken = html.substring(html.indexOf("sid:"), html.indexOf(";var") - 1);
-		Map<String, String> data = new HashMap<>();
-		data.put("lang_code", "english");
-		data.put("action_code", "fillLangState");
-		data.put("__csrf_magic", csrfToken);
-		Response resp = JSoupHelper.postConnection(COURT_URL, 0).cookies(cookies).referrer(HOME_URL).data(data)
-				.execute();
-		JsonNode json = new ObjectMapper().readValue(resp.body().replace("\uFEFF", ""), JsonNode.class);
-		Document states = Jsoup.parseBodyFragment(json.get("selState").asText());
-		Elements elements = states.getElementById("sess_state_code").children();
-		elements.stream().skip(1).forEach(e -> System.out.println(e.attr("value") + "\t" + e.text()));
+	@Override
+	public List<Serializable> courts(String courtType) throws IOException {
+		return "ce".equals(courtType) ? courtEstablishment() : courtComplex();
+	}
+
+	@Override
+	public List<Serializable> courtComplex() throws IOException {
+		if (!COURT_COMPLEX.isEmpty()) {
+			return COURT_COMPLEX;
+		} else {
+			for (Entry<String, String> state : states().entrySet()) {
+				String sc = state.getKey();
+				String sn = state.getValue();
+				for (Entry<String, String> district : districts(sc).entrySet()) {
+					String dc = district.getKey();
+					String dn = district.getValue();
+					for (Entry<String, String> cc : courtComplexes(sc, dc).entrySet()) {
+						DistrictCourtComplex dcc = DistrictCourtComplex.courtComplexBuilder().stateCode(sc)
+								.stateName(sn).districtCode(dc).districtName(dn).complexCode(cc.getKey())
+								.complexName(cc.getValue()).build();
+						COURT_COMPLEX.add(dcc);
+					}
+				}
+			}
+		}
+		return COURT_COMPLEX;
+	}
+
+	@Override
+	public List<Serializable> courtEstablishment() throws IOException {
+		if (!COURT_ESTABLISHMENT.isEmpty()) {
+			return COURT_ESTABLISHMENT;
+		} else {
+			for (Entry<String, String> state : states().entrySet()) {
+				String sc = state.getKey();
+				String sn = state.getValue();
+				for (Entry<String, String> district : districts(sc).entrySet()) {
+					String dc = district.getKey();
+					String dn = district.getValue();
+					for (Entry<String, String> cc : courtEstablishments(sc, dc).entrySet()) {
+						DistrictCourtEstablishment dcc = DistrictCourtEstablishment.courtEstablishmentBuilder()
+								.stateCode(sc).stateName(sn).districtCode(dc).districtName(dn)
+								.establishmentCode(cc.getKey()).establishmentName(cc.getValue()).build();
+						COURT_ESTABLISHMENT.add(dcc);
+					}
+				}
+			}
+		}
+		return COURT_ESTABLISHMENT;
 	}
 }

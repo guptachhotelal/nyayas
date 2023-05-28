@@ -4,19 +4,17 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class DistrictCourt extends HighCourt {
+public class DistrictCourt extends State {
 
 	private static final long serialVersionUID = 1L;
 
-	private String districtCode;
-	private String districtName;
+	protected String districtCode;
+	protected String districtName;
 
-	@Builder(builderMethodName = "districtCourtBuiler")
-	public DistrictCourt(String courtName, int benchCode, String benchName, int stateCode, String stateName,
-			String districtCode, String districtName) {
-		super(courtName, benchCode, benchName, stateCode, stateName);
+	@Builder(builderMethodName = "districtCourtBuilder")
+	public DistrictCourt(String stateCode, String stateName, String districtCode, String districtName) {
+		super(stateCode, stateName);
 		this.districtCode = districtCode;
 		this.districtName = districtName;
 	}
-
 }

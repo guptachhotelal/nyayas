@@ -14,9 +14,8 @@ public class ServiceFactory<T extends Service<T>> {
 	private List<T> services;
 
 	public T getService(Class<T> clazz, Object id) {
-		return Optional.ofNullable(services)
-				.orElseThrow(() -> new IllegalStateException("No Service initialized.")).stream()
-				.filter(service -> service.supports(clazz, id)).findFirst()
+		return Optional.ofNullable(services).orElseThrow(() -> new IllegalStateException("No Service initialized."))
+				.stream().filter(service -> service.supports(clazz, id)).findFirst()
 				.orElseThrow(() -> new IllegalArgumentException("No service with id " + id + " exist."));
 	}
 }

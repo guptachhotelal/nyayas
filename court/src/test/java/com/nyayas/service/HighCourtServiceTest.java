@@ -38,7 +38,7 @@ class HighCourtServiceTest extends CourtServiceApplicationTest {
 	void testCourts() throws Exception {
 		MultiValueMap<String, String> param = new LinkedMultiValueMap<>();
 		param.add("cc", "ECHC");
-		param.add("order[0][column]", "stateCode");
+		param.add("order[0][column]", "benchCode");
 		RequestBuilder builder = post(uri()).params(param);
 		mockMvc.perform(builder).andDo(MockMvcResultHandlers.print()).andExpect(status().isOk());
 	}

@@ -32,8 +32,11 @@ public class CourtController {
 
 	@PostMapping("courts")
 	public ResponseEntity<Map<String, Object>> highCourtList(HttpServletRequest request) {
-		String courtCode = request.getParameter("cc");
+		String courtCode = request.getParameter("courtCode");
 		courtCode = Objects.isNull(courtCode) ? Courts.ECOURT_HIGH_COURT.code() : courtCode.toUpperCase();
+		String courtType = request.getParameter("courtType");
+		courtType = Objects.isNull(courtType) ? "hc" : "cc";
+
 		log.info("Listing courts");
 		String sortColumn = request.getParameter("order[0][column]");
 		boolean asc = "asc".equals(request.getParameter("order[0][dir]")) || false;
@@ -49,7 +52,7 @@ public class CourtController {
 		List<Serializable> list = new ArrayList<>();
 		CourtService cs = courtServiceFactory.getService(CourtService.class, courtCode);
 		try {
-			list.addAll(cs.courts());
+			list.addAll(cs.courts(courtType));
 		} catch (IOException e) {
 			log.info(e.getMessage());
 		}

@@ -3,15 +3,14 @@ package com.nyayas.service.vo;
 import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @AllArgsConstructor
-public class Court implements Serializable {
+public class State implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String courtName;
-	private String benchCode;
-	private String benchName;
+	private String stateCode;
+	private String stateName;
 }
