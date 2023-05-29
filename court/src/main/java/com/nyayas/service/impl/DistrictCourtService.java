@@ -15,14 +15,12 @@ import com.nyayas.service.CourtService;
 import com.nyayas.service.vo.DistrictCourtComplex;
 import com.nyayas.service.vo.DistrictCourtEstablishment;
 
-//https://curl.trillworks.com
-//https://curlconverter.com/
 @Service
 public class DistrictCourtService extends AbstractDistrictCourtService {
 
-	private static final List<Serializable> COURT_COMPLEX = new ArrayList<>();
+	private static final List<DistrictCourtComplex> COURT_COMPLEX = new ArrayList<>();
 
-	private static final List<Serializable> COURT_ESTABLISHMENT = Collections.emptyList();
+	private static final List<DistrictCourtEstablishment> COURT_ESTABLISHMENT = Collections.emptyList();
 
 	@Override
 	public boolean supports(Class<CourtService> clazz, Object id) {
@@ -30,12 +28,12 @@ public class DistrictCourtService extends AbstractDistrictCourtService {
 	}
 
 	@Override
-	public List<Serializable> courts(String courtType) throws IOException {
+	public List<? extends Serializable> courts(String courtType) throws IOException {
 		return "ce".equals(courtType) ? courtEstablishment() : courtComplex();
 	}
 
 	@Override
-	public List<Serializable> courtComplex() throws IOException {
+	public List<DistrictCourtComplex> courtComplex() throws IOException {
 		if (!COURT_COMPLEX.isEmpty()) {
 			return COURT_COMPLEX;
 		} else {
@@ -58,7 +56,7 @@ public class DistrictCourtService extends AbstractDistrictCourtService {
 	}
 
 	@Override
-	public List<Serializable> courtEstablishment() throws IOException {
+	public List<DistrictCourtEstablishment> courtEstablishment() throws IOException {
 		if (!COURT_ESTABLISHMENT.isEmpty()) {
 			return COURT_ESTABLISHMENT;
 		} else {

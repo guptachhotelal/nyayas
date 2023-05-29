@@ -19,7 +19,6 @@ import com.nyayas.service.AbstractCourtService;
 import com.nyayas.service.CourtService;
 import com.nyayas.service.vo.HighCourt;
 
-//https://curl.trillworks.com
 @Service
 public class HighCourtService extends AbstractCourtService {
 
@@ -27,7 +26,7 @@ public class HighCourtService extends AbstractCourtService {
 	private static final String COURT_URL = "https://hcservices.ecourts.gov.in/hcservices/cases_qry/index_qry.php";
 	// https://services.ecourts.gov.in/ecourtindiaHC/cases/case_no.php?state_cd=1&dist_cd=1&court_code=1&stateNm=Bombay
 
-	private static final List<Serializable> HIGH_COURTS = new ArrayList<>();
+	private static final List<HighCourt> HIGH_COURTS = new ArrayList<>();
 
 	@Override
 	public boolean supports(Class<CourtService> clazz, Object id) {
@@ -35,7 +34,7 @@ public class HighCourtService extends AbstractCourtService {
 	}
 
 	@Override
-	public List<Serializable> courts(String courtType) throws IOException {
+	public List<? extends Serializable> courts(String courtType) throws IOException {
 		if (!HIGH_COURTS.isEmpty()) {
 			return HIGH_COURTS;
 		}

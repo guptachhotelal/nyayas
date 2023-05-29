@@ -8,8 +8,8 @@ public class DistrictCourt extends State {
 
 	private static final long serialVersionUID = 1L;
 
-	protected String districtCode;
-	protected String districtName;
+	private String districtCode;
+	private String districtName;
 
 	@Builder(builderMethodName = "districtCourtBuilder")
 	public DistrictCourt(String stateCode, String stateName, String districtCode, String districtName) {

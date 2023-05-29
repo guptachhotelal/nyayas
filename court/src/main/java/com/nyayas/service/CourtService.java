@@ -13,7 +13,7 @@ public interface CourtService extends Service<CourtService> {
 
 	String states(String stateCode) throws IOException;
 
-	List<Serializable> caseTypes() throws IOException;
+	List<? extends Serializable> caseTypes() throws IOException;
 
-	List<Serializable> courts(String courtType) throws IOException;
+	List<? extends Serializable> courts(String courtType) throws IOException;
 }
