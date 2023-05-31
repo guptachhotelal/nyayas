@@ -25,6 +25,8 @@ public abstract class AbstractDistrictCourtService extends AbstractCourtService 
 
 	public static final String COURT_COMPLEX_URL = "https://services.ecourts.gov.in/ecourtindia_v6/?p=casestatus/fillcomplex";
 
+	public static final String COURT_ESTABLISHMENT_URL = "https://services.ecourts.gov.in/ecourtindia_v4_bilingual/cases/case_no.php?state=D&state_cd=##sc##&dist_cd=##dc##";
+
 	@Override
 	public Map<String, String> districts(String stateCode) throws IOException {
 		Map<String, String> param = new HashMap<>();
@@ -59,6 +61,9 @@ public abstract class AbstractDistrictCourtService extends AbstractCourtService 
 	}
 
 	public Map<String, String> courtEstablishments(String stateCode, String districtCode) throws IOException {
-		throw new UnsupportedOperationException("Method not implemented");
+		String url = COURT_ESTABLISHMENT_URL.replaceAll("##sc##", stateCode).replaceAll("##dc##", districtCode);
+		Document ceDoc = JSoupHelper.getResponse(url, 0).parse();
+		Elements courts = ceDoc.getElementById("court_code").getElementsByTag("option");
+		return courts.stream().skip(1).collect(Collectors.toMap(Element::val, Element::text));
 	}
 }

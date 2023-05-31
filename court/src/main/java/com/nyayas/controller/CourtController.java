@@ -34,10 +34,13 @@ public class CourtController {
 	public ResponseEntity<Map<String, Object>> highCourtList(HttpServletRequest request) {
 		String courtCode = request.getParameter("courtCode");
 		courtCode = Objects.isNull(courtCode) ? Courts.ECOURT_HIGH_COURT.code() : courtCode.toUpperCase();
-		String courtType = request.getParameter("courtType");
-		courtType = Objects.isNull(courtType) ? "hc" : "cc";
-
-		log.info("Listing courts");
+		String courtType = "hc";
+		if ("ce".equals(request.getParameter("courtType"))) {
+			courtType = "ce";
+		} else if ("cc".equals(request.getParameter("courtType"))) {
+			courtType = "cc";
+		}
+		log.info("Listing {} courts", Courts.fromCode(courtCode).text());
 		String sortColumn = request.getParameter("order[0][column]");
 		boolean asc = "asc".equals(request.getParameter("order[0][dir]")) || false;
 		String sText = request.getParameter("search[value]");
