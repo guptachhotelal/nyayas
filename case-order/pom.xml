@@ -33,7 +33,6 @@
 		</dependency>
 	</dependencies>
 
-
 	<modules>
 		<module>case-order-case-number</module>
 		<module>case-order-common</module>
