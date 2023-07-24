@@ -23,7 +23,13 @@ public class SupremeCourt extends CaseStatusByCaseNumberService {
 
 	public static final String STATUS_HOME = "https://main.sci.gov.in/case-status";
 
+	public static final String CAPTCHA_URL = "https://main.sci.gov.in/php/captcha_num.php";
+
 	public static final String STATUS_URL = "https://main.sci.gov.in/php/case_status/case_status_process.php";
+
+	private static final String HOST_KEY = "Host";
+
+	private static final String HOST_VALUE = "main.sci.gov.in";
 
 	@Override
 	public boolean supports(Class<CaseNumberService> clazz, Object id) {
@@ -41,13 +47,17 @@ public class SupremeCourt extends CaseStatusByCaseNumberService {
 
 	@Override
 	public Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException {
-		int captcha = (int) (Math.random() * 10000);
-		if (captcha < 1000) {
-			captcha += 1000;
-		}
-		param.put("ansCaptcha", String.valueOf(captcha));
+		Response respHome = JSoupHelper.getResponse(STATUS_HOME, HOST_KEY, HOST_VALUE, 0);
 
-		Response sResp = JSoupHelper.postConnection(STATUS_URL, 0).referrer(STATUS_HOME).data(param).execute();
+		Map<String, String> cookies = respHome.cookies();
+
+		Response respCaptcha = JSoupHelper.getConnection(CAPTCHA_URL, HOST_KEY, HOST_VALUE, 0).cookies(cookies)
+				.execute();
+
+		param.put("ansCaptcha", respCaptcha.body());
+
+		Response sResp = JSoupHelper.postConnection(STATUS_URL, HOST_KEY, HOST_VALUE, 0).referrer(STATUS_HOME)
+				.cookies(cookies).data(param).execute();
 
 		Document doc = Jsoup.parse(sResp.body());
 

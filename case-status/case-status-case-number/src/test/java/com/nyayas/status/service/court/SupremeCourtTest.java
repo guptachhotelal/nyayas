@@ -50,7 +50,7 @@ class SupremeCourtTest extends CaseStatusByCaseNumberTest {
 	}
 
 	@Test
-	void testStatusCaeNumber() throws Exception {
+	void testStatusCaseNumber() throws Exception {
 		String requestBody = mapper.writeValueAsString(requestMap());
 		RequestBuilder builder = post(uri()).content(requestBody).accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON);

@@ -18,7 +18,7 @@ public class CauseListByAdvocateController {
 	@Resource
 	private ServiceFactory<CauseListService> causeListFactory;
 
-	@PostMapping("causeList")
+	@PostMapping("advocate")
 	public ResponseEntity<Map<String, Object>> causeList(@RequestBody Map<String, String> param) {
 		return null;
 	}

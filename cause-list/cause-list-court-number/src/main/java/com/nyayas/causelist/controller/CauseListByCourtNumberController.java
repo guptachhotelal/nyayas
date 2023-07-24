@@ -18,7 +18,7 @@ public class CauseListByCourtNumberController {
 	@Resource
 	private ServiceFactory<CauseListService> causeListFactory;
 
-	@PostMapping("causeList")
+	@PostMapping("court-number")
 	public ResponseEntity<Map<String, Object>> causeList(@RequestBody Map<String, String> param) {
 		return null;
 	}

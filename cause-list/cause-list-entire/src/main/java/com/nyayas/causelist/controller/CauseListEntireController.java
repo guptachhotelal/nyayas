@@ -18,7 +18,7 @@ public class CauseListEntireController {
 	@Resource
 	private ServiceFactory<CauseListService> causeListFactory;
 
-	@PostMapping("causeList")
+	@PostMapping("entire")
 	public ResponseEntity<Map<String, Object>> causeList(@RequestBody Map<String, String> param) {
 		return null;
 	}

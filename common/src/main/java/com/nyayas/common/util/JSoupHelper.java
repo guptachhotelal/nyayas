@@ -33,7 +33,7 @@ public class JSoupHelper {
 		return connection(url, timeOut).method(Method.GET);
 	}
 
-	static Connection getConnection(String url, String headerKey, String headerValue, int timeOut) {
+	public static final Connection getConnection(String url, String headerKey, String headerValue, int timeOut) {
 		return getConnection(url, timeOut).header(headerKey, headerValue);
 	}
 
