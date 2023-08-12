@@ -26,7 +26,7 @@ A project using Spring boot with Spring cloud
 
 * [Jsoup (v1.16.1)](https://jsoup.org/)
 * [Node js (v20.5.1)](https://nodejs.org/en)
-* [Angular (v16.1.3)](https://angular.io/)
+* [Angular (v16.2.0)](https://angular.io/)
 
 
 ## Testing
