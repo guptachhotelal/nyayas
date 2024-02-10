@@ -38,11 +38,16 @@ ui/ui-ng/src/node
 ui/ui-ng/src/node_modules
 ui/ui-ng/target
 ui/ui-ng/src/dist
+ui/ui-ng/src/package-lock.json
+
 ui/ui-react/src/node
 ui/ui-react/src/node_modules
 ui/ui-react/target
 ui/ui-react/src/dist
 ui/ui-react/src/public
+ui/ui-react/src/package_lock.json
+ui/ui-react/src/yarn.lock
+
 ui/ui-vue/src/node
 ui/ui-vue/src/node_modules
 ui/ui-vue/target
