@@ -48,6 +48,7 @@ ui/ui-vue/src/node_modules
 ui/ui-vue/target
 ui/ui-vue/src/dist
 ui/ui-vue/src/public
+ui/bin
 eureka/.factorypath
 ui/.factorypath
 
