@@ -12,29 +12,8 @@
 	<artifactId>case-order-common</artifactId>
 	<name>case-order-common</name>
 
-	<dependencies>
-	</dependencies>
-
 	<build>
 		<finalName>${project.artifactId}</finalName>
-		<plugins>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${pmd.version}</version>
-                <configuration>
-					<failOnViolation>true</failOnViolation>
-					<printFailingErrors>true</printFailingErrors>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-            </plugin>
-        </plugins>
 	</build>
 
 </project>

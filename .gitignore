@@ -34,8 +34,21 @@ build/
 
 eureka/target/**
 ui/src/node/**
-ui/target/**
-ui/src/dist/**
+ui/ui-ng/src/node
+ui/ui-ng/src/node_modules
+ui/ui-ng/target
+ui/ui-ng/src/dist
+ui/ui-react/src/node
+ui/ui-react/src/node_modules
+ui/ui-react/target
+ui/ui-react/src/dist
+ui/ui-react/src/public
+ui/ui-vue/src/node
+ui/ui-vue/src/node_modules
+ui/ui-vue/target
+ui/ui-vue/src/dist
+ui/ui-vue/src/public
 eureka/.factorypath
 ui/.factorypath
+
 

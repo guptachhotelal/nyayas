@@ -5,7 +5,7 @@ A project using Spring boot with Spring cloud
 ## Table of Contents
 
 * [Getting Started](#getting-started)
-* [Code](https://github.com/guptachhotelal/DTGrid))
+* [Code](https://github.com/guptachhotelal/DTGrid)
 * [Branches](#branches)
 * [Dependencies](#dependencies)
 * [External libraries](#external-libraries)
@@ -16,7 +16,7 @@ A project using Spring boot with Spring cloud
 ## Getting Started
 
 * Clone the latest code [here](https://github.com/guptachhotelal/nyayas),
-* Import the code in Eclispe/ Spring tool Suite
+* Import the code in Eclipse/ Spring tool Suite
 
 ## Branches
 
@@ -24,16 +24,17 @@ A project using Spring boot with Spring cloud
 
 ## External libraries
 
-* [Jsoup (v1.16.1)](https://jsoup.org/)
-* [Node js (v20.5.1)](https://nodejs.org/en)
-* [Angular (v16.2.0)](https://angular.io/)
+* [Jsoup (v1.17.2)](https://jsoup.org/)
+* [Apache PDFBox (v3.0.1)](https://pdfbox.apache.org/)
+* [Node js (v20.11.0)](https://nodejs.org/en)
+* [Angular (v17.0.7)](https://angular.io/)
 
 
 ## Testing
 
 This project was developed and tested using:
 
-* Java 17 and JUnit 5+
+* Java 21 and JUnit 5+
 * Windows 11 Home
 
 ## Issues

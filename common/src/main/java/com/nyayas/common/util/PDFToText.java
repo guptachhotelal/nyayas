@@ -3,6 +3,7 @@ package com.nyayas.common.util;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.tools.PDFText2HTML;
@@ -21,7 +22,7 @@ public class PDFToText {
 	}
 
 	private static String pdfTo(int to, File file) throws IOException {
-		PDDocument document = PDDocument.load(file);
+		PDDocument document = Loader.loadPDF(file);
 		switch (to) {
 		case TO_TEXT:
 			return new PDFTextStripper().getText(document);
