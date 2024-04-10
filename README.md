@@ -25,9 +25,9 @@ A project using Spring boot with Spring cloud
 ## External libraries
 
 * [Angular (v17.0.7)](https://angular.io/)
-* [Apache PDFBox (v3.0.1)](https://pdfbox.apache.org/)
+* [Apache PDFBox (v3.0.2)](https://pdfbox.apache.org/)
 * [Jsoup (v1.17.2)](https://jsoup.org/)
-* [Node js (v20.11.0)](https://nodejs.org/en)
+* [Node js (v20.12.1)](https://nodejs.org/en)
 
 ## Testing
 

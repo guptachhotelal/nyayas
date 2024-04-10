@@ -15,7 +15,7 @@
 
 	<properties>
 		<jsoup.version>1.17.2</jsoup.version>
-		<pdfbox.version>3.0.1</pdfbox.version>
+		<pdfbox.version>3.0.2</pdfbox.version>
 	</properties>
 
 	<dependencies>

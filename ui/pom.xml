@@ -16,7 +16,7 @@
 
 	<properties>
 		<frontend.plugin.version>1.15.0</frontend.plugin.version>
-		<node.version>v20.11.0</node.version>
+		<node.version>v20.12.1</node.version>
 	</properties>
 
 	<modules>
