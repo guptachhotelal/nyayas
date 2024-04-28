@@ -8,8 +8,8 @@ import com.nyayas.causelist.service.CauseListService;
 @Service
 public class MeghalayaHighCourt extends AbstractCauselistService {
 
-	@Override
-	public boolean supports(Class<CauseListService> clazz, Object id) {
-		return false;
-	}
+    @Override
+    public boolean supports(Class<CauseListService> clazz, Object id) {
+	return false;
+    }
 }

@@ -8,10 +8,10 @@ import com.nyayas.common.constant.Courts;
 
 @Service
 public class DelhiHighCourt extends AbstractCauselistService {
-	
-	@Override
-	public boolean supports(Class<CauseListService> clazz, Object id) {
-		return CauseListService.class.equals(clazz) && id.equals(Courts.DELHI_HIGH_COURT.code());
-	}
- 
+
+    @Override
+    public boolean supports(Class<CauseListService> clazz, Object id) {
+	return CauseListService.class.equals(clazz) && id.equals(Courts.DELHI_HIGH_COURT.code());
+    }
+
 }

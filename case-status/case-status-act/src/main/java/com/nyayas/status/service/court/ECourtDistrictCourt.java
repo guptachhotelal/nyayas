@@ -1,16 +1,17 @@
 package com.nyayas.status.service.court;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nyayas.status.service.CaseStatusByActService;
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.constant.Courts;
 import com.nyayas.status.service.ActService;
+import com.nyayas.status.service.CaseStatusByActService;
 
 @Service
 public class ECourtDistrictCourt extends CaseStatusByActService {
@@ -47,7 +48,7 @@ public class ECourtDistrictCourt extends CaseStatusByActService {
 
 	@Override
 	public Map<String, Object> caseStatus(Map<String, String> param) throws IOException {
-		return super.caseStatus(param);
+		return Collections.emptyMap();
 	}
 
 	public static void main(String[] args) throws Exception {

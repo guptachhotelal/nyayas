@@ -13,12 +13,12 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nyayas.status.service.CaseStatusByAdvocateService;
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
 import com.nyayas.common.util.ResponseUtil;
 import com.nyayas.status.service.AdvocateService;
+import com.nyayas.status.service.CaseStatusByAdvocateService;
 
 @Service
 public class SupremeCourt extends CaseStatusByAdvocateService {

@@ -9,8 +9,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class State implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String stateCode;
-	private String stateName;
+    private String stateCode;
+    private String stateName;
 }

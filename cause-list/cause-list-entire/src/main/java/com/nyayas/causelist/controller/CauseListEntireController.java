@@ -15,12 +15,12 @@ import jakarta.annotation.Resource;
 @RestController
 public class CauseListEntireController {
 
-	@Resource
-	private ServiceFactory<CauseListService> causeListFactory;
+    @Resource
+    private ServiceFactory<CauseListService> causeListFactory;
 
-	@PostMapping("entire")
-	public ResponseEntity<Map<String, Object>> causeList(@RequestBody Map<String, String> param) {
-		return null;
-	}
+    @PostMapping("entire")
+    public ResponseEntity<Map<String, Object>> causeList(@RequestBody Map<String, String> param) {
+	return null;
+    }
 
 }

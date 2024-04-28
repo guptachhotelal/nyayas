@@ -7,7 +7,7 @@ import com.nyayas.common.service.Service;
 
 public interface FilingNumberService extends Service<FilingNumberService> {
 
-	Map<String, String> filingNumberParam(Map<String, String> param);
+    Map<String, String> filingNumberParam(Map<String, String> param);
 
-	Map<String, Object> byFilingNumber(Map<String, String> param) throws IOException;
+    Map<String, Object> byFilingNumber(Map<String, String> param) throws IOException;
 }

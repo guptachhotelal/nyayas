@@ -18,13 +18,13 @@ import jakarta.annotation.Resource;
 @RequestMapping("v1")
 public class CaptchaController {
 
-	@Resource
-	private ServiceFactory<CaptchaService> captchaFactory;
+    @Resource
+    private ServiceFactory<CaptchaService> captchaFactory;
 
-	@PostMapping("captcha")
-	public ResponseEntity<Map<String, String>> solve(@RequestBody Map<String, String> param) {
-		CaptchaService cs = captchaFactory.getService(CaptchaService.class, param.get(Constant.TYPE));
-		return ResponseEntity.ok(cs.captcha(param));
-	}
+    @PostMapping("captcha")
+    public ResponseEntity<Map<String, String>> solve(@RequestBody Map<String, String> param) {
+	CaptchaService cs = captchaFactory.getService(CaptchaService.class, param.get(Constant.TYPE));
+	return ResponseEntity.ok(cs.captcha(param));
+    }
 
 }

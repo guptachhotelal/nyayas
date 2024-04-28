@@ -12,29 +12,29 @@ import com.nyayas.captcha.util.Constant;
 
 class InternalCaptchaServiceTest extends CaptchaServiceApplicationTest {
 
-	private CaptchaService ics = null;
+    private CaptchaService ics = null;
 
-	@BeforeEach
-	void before() {
-		ics = serviceFactory.getService(CaptchaService.class, Constant.INTERNAL);
-	}
+    @BeforeEach
+    void before() {
+	ics = serviceFactory.getService(CaptchaService.class, Constant.INTERNAL);
+    }
 
-	@Test
-	void testSupportsText() {
-		boolean supports = ics.supports(CaptchaService.class, Constant.TEXT);
-		assertFalse(supports);
-	}
+    @Test
+    void testSupportsText() {
+	boolean supports = ics.supports(CaptchaService.class, Constant.TEXT);
+	assertFalse(supports);
+    }
 
-	@Test
-	void testSupportsInternal() {
-		boolean supports = ics.supports(CaptchaService.class, Constant.INTERNAL);
-		assertTrue(supports);
-	}
+    @Test
+    void testSupportsInternal() {
+	boolean supports = ics.supports(CaptchaService.class, Constant.INTERNAL);
+	assertTrue(supports);
+    }
 
-	@Test
-	void testSupportsExternal() {
-		boolean supports = ics.supports(CaptchaService.class, Constant.EXTERNAL);
-		assertFalse(supports);
-	}
+    @Test
+    void testSupportsExternal() {
+	boolean supports = ics.supports(CaptchaService.class, Constant.EXTERNAL);
+	assertFalse(supports);
+    }
 
 }

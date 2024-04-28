@@ -9,9 +9,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class Court implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String courtName;
-	private String benchCode;
-	private String benchName;
+    private String courtName;
+    private String benchCode;
+    private String benchName;
 }

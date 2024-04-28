@@ -1,6 +1,7 @@
 package com.nyayas.status.service.court.bombay;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,6 @@ public class BombayHighCourtAppellateSide extends BombayHighCourt {
 
 	@Override
 	public Map<String, Object> caseStatus(Map<String, String> param) throws IOException {
-		return super.caseStatus(param);
+		return Collections.emptyMap();
 	}
 }

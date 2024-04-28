@@ -9,11 +9,11 @@ import com.nyayas.common.service.Service;
 
 public interface CourtService extends Service<CourtService> {
 
-	Map<String, String> states() throws IOException;
+    Map<String, String> states() throws IOException;
 
-	String states(String stateCode) throws IOException;
+    String states(String stateCode) throws IOException;
 
-	List<? extends Serializable> caseTypes() throws IOException;
+    List<? extends Serializable> caseTypes() throws IOException;
 
-	List<? extends Serializable> courts(String courtType) throws IOException;
+    List<? extends Serializable> courts(String courtType) throws IOException;
 }

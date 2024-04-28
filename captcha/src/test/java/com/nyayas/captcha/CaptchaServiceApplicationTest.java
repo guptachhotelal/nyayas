@@ -15,32 +15,31 @@ import com.nyayas.common.service.ServiceFactory;
 
 import jakarta.annotation.Resource;
 
-
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = CaptchaServiceApplication.class)
 @AutoConfigureMockMvc
 public class CaptchaServiceApplicationTest {
 
-	@Resource
-	protected ServiceFactory<CaptchaService> serviceFactory;
+    @Resource
+    protected ServiceFactory<CaptchaService> serviceFactory;
 
-	protected ObjectMapper mapper = new ObjectMapper();
+    protected ObjectMapper mapper = new ObjectMapper();
 
-	@LocalServerPort
-	private int port;
+    @LocalServerPort
+    private int port;
 
-	@Resource
-	protected MockMvc mockMvc;
+    @Resource
+    protected MockMvc mockMvc;
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Test
-	void testMockMvcNull() {
-		assertNotNull(mockMvc);
-	}
+    @Test
+    void testMockMvcNull() {
+	assertNotNull(mockMvc);
+    }
 
-	protected String uri() {
-		return "http://localhost:" + port + "/v1/captcha";
-	}
+    protected String uri() {
+	return "http://localhost:" + port + "/v1/captcha";
+    }
 }

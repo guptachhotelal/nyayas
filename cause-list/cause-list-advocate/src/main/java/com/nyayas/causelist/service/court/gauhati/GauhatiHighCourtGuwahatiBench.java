@@ -7,8 +7,8 @@ import com.nyayas.causelist.service.court.GauhatiHighCourt;
 
 @Service
 public class GauhatiHighCourtGuwahatiBench extends GauhatiHighCourt {
-	@Override
-	public boolean supports(Class<CauseListService> clazz, Object id) {
-		return false;
-	}
+    @Override
+    public boolean supports(Class<CauseListService> clazz, Object id) {
+	return false;
+    }
 }

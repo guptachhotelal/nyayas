@@ -8,10 +8,9 @@ import com.nyayas.causelist.service.court.BombayHighCourt;
 @Service
 public class BombayHighCourtAppellateSide extends BombayHighCourt {
 
-	@Override
-	public boolean supports(Class<CauseListService> clazz, Object id) {
-		return false;
-	}
+    @Override
+    public boolean supports(Class<CauseListService> clazz, Object id) {
+	return false;
+    }
 
- 
 }

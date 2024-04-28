@@ -15,11 +15,11 @@ import jakarta.annotation.Resource;
 @RestController
 public class DisplayBoardController {
 
-	@Resource
-	private ServiceFactory<DisplayBoardService> displayBoardFactory;
+    @Resource
+    private ServiceFactory<DisplayBoardService> displayBoardFactory;
 
-	@PostMapping("causeList")
-	public ResponseEntity<Map<String, Object>> displayBoard(@RequestBody Map<String, String> param) {
-		return null;
-	}
+    @PostMapping("causeList")
+    public ResponseEntity<Map<String, Object>> displayBoard(@RequestBody Map<String, String> param) {
+	return null;
+    }
 }

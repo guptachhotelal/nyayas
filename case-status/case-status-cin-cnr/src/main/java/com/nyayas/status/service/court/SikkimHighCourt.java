@@ -1,12 +1,13 @@
 package com.nyayas.status.service.court;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.nyayas.status.service.CaseStatusByCINCNRService;
 import com.nyayas.status.service.CINCNRService;
+import com.nyayas.status.service.CaseStatusByCINCNRService;
 
 @Service
 public class SikkimHighCourt extends CaseStatusByCINCNRService {
@@ -18,6 +19,6 @@ public class SikkimHighCourt extends CaseStatusByCINCNRService {
 
 	@Override
 	public Map<String, Object> byCINCNR(Map<String, String> param) throws IOException {
-		return super.byCINCNR(param);
+		return Collections.emptyMap();
 	}
 }

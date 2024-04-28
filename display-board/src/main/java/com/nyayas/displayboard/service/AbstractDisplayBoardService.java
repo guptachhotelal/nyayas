@@ -5,8 +5,8 @@ import java.util.Map;
 
 public abstract class AbstractDisplayBoardService implements DisplayBoardService {
 
-	@Override
-	public Map<String, Object> displayBoard(Map<String, String> param) {
-		return Collections.emptyMap();
-	}
+    @Override
+    public Map<String, Object> displayBoard(Map<String, String> param) {
+	return Collections.emptyMap();
+    }
 }

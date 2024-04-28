@@ -10,12 +10,12 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nyayas.status.service.CaseStatusByCINCNRService;
 import com.nyayas.common.constant.CaseFields;
 import com.nyayas.common.constant.Courts;
 import com.nyayas.common.util.JSoupHelper;
 import com.nyayas.common.util.ResponseUtil;
 import com.nyayas.status.service.CINCNRService;
+import com.nyayas.status.service.CaseStatusByCINCNRService;
 
 @Service
 public class DelhiHighCourt extends CaseStatusByCINCNRService {

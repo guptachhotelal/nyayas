@@ -1,6 +1,7 @@
 package com.nyayas.status.service.court.madhyapradesh;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,6 @@ public class MadhyaPradeshHighCourtGwaliorBench extends MadhyaPradeshHighCourt {
 
 	@Override
 	public Map<String, Object> byAdvocateName(Map<String, String> param) throws IOException {
-		return super.byAdvocateName(param);
+		return Collections.emptyMap();
 	}
 }

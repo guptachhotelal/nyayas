@@ -7,7 +7,7 @@ import com.nyayas.common.service.Service;
 
 public interface JudgeWiseService extends Service<JudgeWiseService> {
 
-	Map<String, String> caseNumberParam(Map<String, String> param);
+    Map<String, String> caseNumberParam(Map<String, String> param);
 
-	Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException;
+    Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException;
 }

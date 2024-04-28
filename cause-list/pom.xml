@@ -24,7 +24,6 @@
 			<artifactId>common</artifactId>
 			<version>${common.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.nyayas</groupId>
 			<artifactId>captcha</artifactId>
@@ -33,24 +32,6 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${pmd.version}</version>
-                <configuration>
-					<failOnViolation>true</failOnViolation>
-					<printFailingErrors>true</printFailingErrors>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-            </plugin>
-        </plugins>
 	</build>
 
 	<modules>

@@ -7,7 +7,7 @@ import com.nyayas.common.service.Service;
 
 public interface OrderDateService extends Service<OrderDateService> {
 
-	Map<String, String> caseNumberParam(Map<String, String> param);
+    Map<String, String> caseNumberParam(Map<String, String> param);
 
-	Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException;
+    Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException;
 }

@@ -18,27 +18,27 @@ import jakarta.annotation.Resource;
 @AutoConfigureMockMvc
 public class CourtServiceApplicationTest {
 
-	@Resource
-	protected ServiceFactory<CourtService> serviceFactory;
+    @Resource
+    protected ServiceFactory<CourtService> serviceFactory;
 
-	protected CourtService cs = null;
+    protected CourtService cs = null;
 
-	@LocalServerPort
-	private int port;
+    @LocalServerPort
+    private int port;
 
-	@Resource
-	protected MockMvc mockMvc;
+    @Resource
+    protected MockMvc mockMvc;
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Test
-	void testMockMvcNull() {
-		assertNotNull(mockMvc);
-	}
+    @Test
+    void testMockMvcNull() {
+	assertNotNull(mockMvc);
+    }
 
-	protected String uri() {
-		return "http://localhost:" + port + "/v1/courts";
-	}
+    protected String uri() {
+	return "http://localhost:" + port + "/v1/courts";
+    }
 }

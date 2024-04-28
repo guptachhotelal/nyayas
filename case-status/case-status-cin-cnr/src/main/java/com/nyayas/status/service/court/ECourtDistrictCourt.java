@@ -1,6 +1,7 @@
 package com.nyayas.status.service.court;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class ECourtDistrictCourt extends CaseStatusByCINCNRService {
 
 	@Override
 	public Map<String, Object> byCINCNR(Map<String, String> param) throws IOException {
-		return super.byCINCNR(param);
+		return Collections.emptyMap();
 	}
 
 	public static void main(String[] args) throws Exception {

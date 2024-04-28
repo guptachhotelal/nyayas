@@ -6,14 +6,14 @@ import java.util.Map;
 
 public abstract class CaseOrderByJudgeService extends AbstractCaseOrderService implements JudgeWiseService {
 
-	@Override
-	public Map<String, String> caseNumberParam(Map<String, String> param) {
-		return param;
-	}
+    @Override
+    public Map<String, String> caseNumberParam(Map<String, String> param) {
+	return param;
+    }
 
-	@Override
-	public Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException {
-		return Collections.emptyMap();
-	}
+    @Override
+    public Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException {
+	return Collections.emptyMap();
+    }
 
 }

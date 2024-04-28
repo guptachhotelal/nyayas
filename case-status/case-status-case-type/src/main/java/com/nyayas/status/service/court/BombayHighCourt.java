@@ -1,6 +1,7 @@
 package com.nyayas.status.service.court;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 import com.nyayas.common.constant.CaseFields;
@@ -24,7 +25,7 @@ public abstract class BombayHighCourt extends CaseStatusByCaseTypeService {
 	@Override
 	public Map<String, Object> caseStatus(Map<String, String> param) throws IOException {
 
-		return super.caseStatus(param);
+		return Collections.emptyMap();
 	}
 
 	public static void main(String[] args) {

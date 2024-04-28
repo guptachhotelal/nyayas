@@ -1,6 +1,7 @@
 package com.nyayas.status.service.court.calcutta;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,6 @@ public class CalcuttaHighCourtOriginalSide extends CalcuttaHighCourt {
 
 	@Override
 	public Map<String, Object> byCaseNumber(Map<String, String> param) throws IOException {
-		return super.byCaseNumber(param);
+		return Collections.emptyMap();
 	}
 }

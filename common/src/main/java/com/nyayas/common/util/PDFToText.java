@@ -10,26 +10,26 @@ import org.apache.pdfbox.tools.PDFText2HTML;
 
 public class PDFToText {
 
-	public static final int TO_TEXT = 1;
-	public static final int TO_HTML = 2;
+    public static final int TO_TEXT = 1;
+    public static final int TO_HTML = 2;
 
-	public static final String pdfToText(String filePath) throws IOException {
-		return pdfTo(TO_TEXT, new File(filePath));
-	}
+    public static final String pdfToText(String filePath) throws IOException {
+	return pdfTo(TO_TEXT, new File(filePath));
+    }
 
-	public static final String pdfToHtml(String filePath) throws IOException {
-		return pdfTo(TO_HTML, new File(filePath));
-	}
+    public static final String pdfToHtml(String filePath) throws IOException {
+	return pdfTo(TO_HTML, new File(filePath));
+    }
 
-	private static String pdfTo(int to, File file) throws IOException {
-		PDDocument document = Loader.loadPDF(file);
-		switch (to) {
-		case TO_TEXT:
-			return new PDFTextStripper().getText(document);
-		case TO_HTML:
-			return new PDFText2HTML().getText(document);
-		default:
-			return new PDFTextStripper().getText(document);
-		}
+    private static String pdfTo(int to, File file) throws IOException {
+	PDDocument document = Loader.loadPDF(file);
+	switch (to) {
+	case TO_TEXT:
+	    return new PDFTextStripper().getText(document);
+	case TO_HTML:
+	    return new PDFText2HTML().getText(document);
+	default:
+	    return new PDFTextStripper().getText(document);
 	}
+    }
 }

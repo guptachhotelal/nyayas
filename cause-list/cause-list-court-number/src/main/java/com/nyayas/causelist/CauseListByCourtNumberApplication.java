@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.nyayas.*")
 public class CauseListByCourtNumberApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CauseListByCourtNumberApplication.class, args);
-	}
+    public static void main(String[] args) {
+	SpringApplication.run(CauseListByCourtNumberApplication.class, args);
+    }
 
 }

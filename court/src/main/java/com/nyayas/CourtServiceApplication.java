@@ -10,7 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = "com.nyayas.*")
 public class CourtServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CourtServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+	SpringApplication.run(CourtServiceApplication.class, args);
+    }
 }

@@ -1,6 +1,7 @@
 package com.nyayas.status.service.court.karnataka;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +19,6 @@ public class KarntakaHighCourtDharwadBench extends KarnatakaHighCourt {
 
 	@Override
 	public Map<String, Object> byCINCNR(Map<String, String> param) throws IOException {
-		return super.byCINCNR(param);
+		return Collections.emptyMap();
 	}
 }

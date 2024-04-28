@@ -22,27 +22,27 @@ import jakarta.servlet.DispatcherType;
 @EnableWebSecurity
 public class AppSecurityConfig {
 
-	@Bean
-	SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
-		http.authorizeHttpRequests(auth -> auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-				.requestMatchers(mvc.pattern("/resources/**")).permitAll().requestMatchers(mvc.pattern("*/**"))
-				.hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
-				.formLogin(form -> form.loginPage("/login").permitAll().defaultSuccessUrl("/home", true))
-				.logout(logout -> logout.permitAll()).httpBasic(withDefaults());
-		return http.csrf(csrf -> csrf.disable()).build();
-	}
+    @Bean
+    SecurityFilterChain filterChain(HttpSecurity http, MvcRequestMatcher.Builder mvc) throws Exception {
+	http.authorizeHttpRequests(auth -> auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+		.requestMatchers(mvc.pattern("/resources/**")).permitAll().requestMatchers(mvc.pattern("*/**"))
+		.hasAnyRole("USER", "ADMIN").anyRequest().authenticated())
+		.formLogin(form -> form.loginPage("/login").permitAll().defaultSuccessUrl("/home", true))
+		.logout(logout -> logout.permitAll()).httpBasic(withDefaults());
+	return http.csrf(csrf -> csrf.disable()).build();
+    }
 
-	@Scope("prototype")
-	@Bean
-	MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
-		return new MvcRequestMatcher.Builder(introspector);
-	}
+    @Scope("prototype")
+    @Bean
+    MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
+	return new MvcRequestMatcher.Builder(introspector);
+    }
 
-	@Bean
-	InMemoryUserDetailsManager userDetailsService() {
-		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-		UserDetails admin = User.withUsername("admin").password(encoder.encode("admin")).roles("ADMIN").build();
-		UserDetails user = User.withUsername("user").password(encoder.encode("user")).roles("USER").build();
-		return new InMemoryUserDetailsManager(admin, user);
-	}
+    @Bean
+    InMemoryUserDetailsManager userDetailsService() {
+	PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+	UserDetails admin = User.withUsername("admin").password(encoder.encode("admin")).roles("ADMIN").build();
+	UserDetails user = User.withUsername("user").password(encoder.encode("user")).roles("USER").build();
+	return new InMemoryUserDetailsManager(admin, user);
+    }
 }

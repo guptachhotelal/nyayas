@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(scanBasePackages = "com.nyayas.*")
 public class CaseOrderByOrderDateApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CaseOrderByOrderDateApplication.class, args);
-	}
+    public static void main(String[] args) {
+	SpringApplication.run(CaseOrderByOrderDateApplication.class, args);
+    }
 }
