@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.4.0</version>
 		<relativePath />
 	</parent>
 
@@ -22,8 +22,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>21</java.version>
-		<spring-cloud.version>2023.0.1</spring-cloud.version>
-		<pmd.version>3.22.0</pmd.version>
+		<spring-cloud.version>2024.0.0</spring-cloud.version>
+		<pmd.version>3.26.0</pmd.version>
 
 		<common.version>0.0.1-SNAPSHOT</common.version>
 		<captcha.version>0.0.1-SNAPSHOT</captcha.version>
@@ -97,7 +97,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.22.0</version>
+				<version>${pmd.version}</version>
 				<configuration>
 					<failOnViolation>true</failOnViolation>
 					<printFailingErrors>true</printFailingErrors>
@@ -129,7 +129,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
-				<version>3.3.2</version>
+				<version>3.6.0</version>
 			</plugin>
 		</plugins>
 	</reporting>

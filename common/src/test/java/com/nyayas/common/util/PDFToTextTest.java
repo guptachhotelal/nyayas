@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 class PDFToTextTest {
 
-    private static final String FILE_PATH = "d:/ChhotelalGuptaResume.pdf";
+    private static final String FILE_PATH = "d:/Chhotelal_Gupta_Resume.pdf";
 
     @Test
     void testPdfToText() throws Exception {

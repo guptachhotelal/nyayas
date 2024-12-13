@@ -13,7 +13,7 @@
 	<name>captcha</name>
 
 	<properties>
-		<tesseract.version>5.11.0</tesseract.version>
+		<tesseract.version>5.13.0</tesseract.version>
 	</properties>
 
 	<dependencies>

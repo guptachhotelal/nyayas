@@ -15,8 +15,8 @@
 	<description>UI project for nyayas</description>
 
 	<properties>
-		<frontend.plugin.version>1.15.0</frontend.plugin.version>
-		<node.version>v22.0.0</node.version>
+		<frontend.plugin.version>1.15.1</frontend.plugin.version>
+		<node.version>v22.12.0</node.version>
 	</properties>
 
 	<modules>

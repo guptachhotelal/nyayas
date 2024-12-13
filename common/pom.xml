@@ -14,8 +14,8 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<jsoup.version>1.17.2</jsoup.version>
-		<pdfbox.version>3.0.2</pdfbox.version>
+		<jsoup.version>1.18.3</jsoup.version>
+		<pdfbox.version>3.0.3</pdfbox.version>
 	</properties>
 
 	<dependencies>

@@ -35,7 +35,7 @@
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>${frontend.plugin.version}</version>
 				<configuration>
-					<workingDirectory>src</workingDirectory>
+					<workingDirectory>src/web</workingDirectory>
 				</configuration>
 				<executions>
 					<execution>
@@ -74,7 +74,11 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webResources>
 						<resource>
-							<directory>src/dist</directory>
+							<directory>src/web/dist/browser</directory>
+						</resource>
+						<resource>
+							<directory>src/web/dist</directory>
+							<include>*.txt</include>
 						</resource>
 					</webResources>
 				</configuration>
